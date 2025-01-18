@@ -12,24 +12,12 @@ A simple RESTful API for managing to-do lists using **FastAPI** and **Supabase**
 
 ---
 
-## Prerequisites
-
-Ensure the following are installed:
-
-- Python 3.8+
-- `pip` for package management
-- Supabase account with a project created
-
----
-
 ## Setup Instructions
 
 ### 1. Clone the Repository
 
 ```bash
 # Clone the repository
-git clone <your-repo-url>
-cd todo-api
 ```
 
 ### 2. Create a Virtual Environment
@@ -40,10 +28,6 @@ python -m venv venv
 
 ### 3. Activate the Virtual Environment
 
-- **Windows**:
-  ```bash
-  venv\Scripts\activate
-  ```
 - **macOS/Linux**:
   ```bash
   source venv/bin/activate
@@ -52,20 +36,12 @@ python -m venv venv
 ### 4. Install Dependencies
 
 ```bash
-pip install fastapi uvicorn supabase pyjwt python-dotenv
+pip install -r requirements.txt
 ```
 
 ### 5. Set Up Environment Variables
 
-Create a `.env` file in the project root and add the following:
-
-```
-SUPABASE_URL=<your_supabase_url>
-SUPABASE_KEY=<your_supabase_anon_key>
-JWT_SECRET=<your_jwt_secret>
-```
-
-Replace `<your_supabase_url>`, `<your_supabase_anon_key>`, and `<your_jwt_secret>` with your actual values.
+Create a `.env` file in the project root and add refer the given .env.sample file.
 
 ---
 
@@ -99,9 +75,20 @@ uvicorn main:app --reload
 
 ## API Endpoints
 
-### 1. **User Registration**
+### 1. **User Registration and Login**
 
 **POST** `/register`
+
+Request Body:
+
+```json
+{
+  "username": "user@example.com",
+  "password": "password123"
+}
+```
+
+**POST** `/login`
 
 Request Body:
 
